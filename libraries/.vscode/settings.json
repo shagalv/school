@@ -1,0 +1,5 @@
+{
+	"files.encoding": "gbk",
+     // 如果还想s让新建文件也默认用 GBK，可再加一行
+	"[plaintext]": { "files.encoding": "gbk" }// 可按需改语言标识
+}
