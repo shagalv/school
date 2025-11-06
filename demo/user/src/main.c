@@ -108,7 +108,7 @@ int main(void)
                 image[_i][right_line[_i]] = 0;
             }
             // 显示图像
-            tft180_displayimage03x((uint8_t *)image, 125, 100);
+            tft180_displayimage03x((uint8_t *)image, 128, 160);
 
             // 取图像下1/4处做误差判断
             float mid_err = (MT9V03X_W/2) - mid_line[MT9V03X_H-MT9V03X_H/4];
