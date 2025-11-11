@@ -7,7 +7,7 @@
 //车长轴距需要自行测量修改
 static const float CAR_LENGTH = 200.0f;        // 车长
 static const float WHEELBASE = 150.0f;         // 轴距
-float servo_angle;//需要出现两次声明，不能只在头文件中声明
+float servo_angle;//需要被外部更改的变量，需要出现两次声明，不能只在头文件中声明 xjr
 float wheel_angle;
 
 /*******************************************************************************
