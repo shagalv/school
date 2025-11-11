@@ -1,5 +1,5 @@
 #include "main.h" // 所有引脚信息更改在main.h里改宏
-#include "angle.h"
+#include "my_angle.h"
 
 // *************************** 例程硬件连接说明 ***************************
 /*
@@ -123,7 +123,7 @@ int main(void)
 
 			//获取要转向的角度
             //servo_angle>0会向右转，反之向左转
-			servo_angle = mid_err * 0.5 * SERVO_DIR;
+						servo_angle = mid_err * 0.5 * SERVO_DIR;
             //通过函数得到舵机角度对应的轮子转向角度
             wheel_angle=servo_angle2wheel_angle(servo_angle);
 

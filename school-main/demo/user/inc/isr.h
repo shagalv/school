@@ -27,6 +27,7 @@ extern int16 encoder_data_1;
 extern int16 encoder_data_2;
 extern int16 encoder_data_3;
 extern int16 encoder_data_4;
-
+extern float speed_target_r_1;
+extern float speed_target_l_1;
 
 #endif

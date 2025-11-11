@@ -36,13 +36,14 @@
 #include "zf_common_headfile.h"
 #include "isr.h"
 #include "main.h"
-#include "angle.h"
+#include "my_angle.h"
 
 int16 encoder_data_1 = 0;
 int16 encoder_data_2 = 0;
 int16 encoder_data_3 = 0;
 int16 encoder_data_4 = 0;
-
+float speed_target_r_1;
+float speed_target_l_1;
 
 
 void CSI_IRQHandler(void)
@@ -71,7 +72,7 @@ void PIT_IRQHandler(void)
         //这里假设encoder1是获取右轮数据，这里保持右轮匀速
         speed_real = encoder_data_1;
         // PID更新 
-        speed_pwm = PidLocCtrl(&speed_pid_l, speed_target_r - speed_real, 1.f);
+        speed_pwm = PidLocCtrl(&speed_pid_l, speed_target_r_1 - speed_real, 1.f);
         // 只考虑一个方向转动
         pwm_set_duty(MOTOR1_PWM, MAX(speed_pwm, 0));
         gpio_set_level(MOTOR1_DIR, MOTOR1_FORWARD_DIR_LEVEL);
@@ -80,8 +81,8 @@ void PIT_IRQHandler(void)
         speed_real = encoder_data_2;
         // PID更新 
         float rate = speed_rate(wheel_angle);
-        speed_target_l = speed_target_r*rate;s
-        speed_pwm = PidLocCtrl(&speed_pid_r, speed_target_l - speed_real, 1.f);
+        speed_target_l_1 = speed_target_r_1*rate;
+        speed_pwm = PidLocCtrl(&speed_pid_r, speed_target_l_1 - speed_real, 1.f);
         // 只考虑一个方向转动
         pwm_set_duty(MOTOR2_PWM, MAX(speed_pwm, 0));
         gpio_set_level(MOTOR2_DIR, MOTOR2_FORWARD_DIR_LEVEL);

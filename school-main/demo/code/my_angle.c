@@ -2,11 +2,13 @@
 #include "main.h"
 #include <math.h>
 #include <float.h>
-#include "angle.h"
+#include "my_angle.h"
 
 //车长轴距需要自行测量修改
-static const float CAR_LENGTH = 180.0f;        // 车长
+static const float CAR_LENGTH = 200.0f;        // 车长
 static const float WHEELBASE = 150.0f;         // 轴距
+float servo_angle;//需要出现两次声明，不能只在头文件中声明
+float wheel_angle;
 
 /*******************************************************************************
 * 函 数 名         : servo_angle2wheel_angle
@@ -15,7 +17,7 @@ static const float WHEELBASE = 150.0f;         // 轴距
 * 输    出         : wheel_angle
 *******************************************************************************/
 //有建模结果说明，舵机偏转角度与实际轮子偏转角度呈线性关系，这个具体的值通过实际调试确定
-float k=1.1
+float k=1.5;
 float servo_angle2wheel_angle(float servo_angle)
 {
     return servo_angle*k;
