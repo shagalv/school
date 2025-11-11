@@ -1,7 +1,7 @@
 #include "pid.h"
 
 // 电机PID初始化参数
-float speed_KP = 20, speed_KI = 0.5,speed_KD = 15, speed_IMAX = 1300.0, speed_OUTMAX = 1300.0;
+float speed_KP = 50, speed_KI = 0.1,speed_KD = 8, speed_IMAX = 1300.0, speed_OUTMAX = 1300.0;
 float speed_target_l = 10.0;
 float speed_target_r = 10.0;
 float speed_real = 0.0;
